@@ -1,0 +1,8 @@
+{
+  "name" : "Spelunky Save Editor",
+  "description" : "Edit your Spelunky save file in place.",
+  "version" : "0.0.1",
+  "manifest_version" : 2,
+  "app" : {"background" : {"scripts" : ["background.js"]}},
+  "icons" : {"64" : "robot-icon.png"}
+}
