@@ -1,0 +1,3 @@
+[submodule "third_party/node-jspack"]
+	path = third_party/node-jspack
+	url = git@github.com:pgriess/node-jspack.git
