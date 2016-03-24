@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="JournalEditor">
   <head>
-    <script src="angular.min.js"></script>
-  </head>
-  <body>
-    <button id="findSave">Find your save file</button>
+    <script src="third_party/angular.min.js"></script>
+    <script src="third_party/node-jspack/jspack.js"></script>
+    <script src="js/app.js"></script>
     <script src="js/savefile.js"></script>
+    <script src="js/journalctrl.js"></script>
+  </head>
+  <body ng-controller="JournalCtrl as ctrl">
+    <button id="findSave">Find your save file</button>
+    <button id="redo">Read the current</button>
+    <script src="js/link.js"></script>
+    <a ng-repeat="journal in ctrl.journals">{{journal.path}}</a>
   </body>
 </html>
