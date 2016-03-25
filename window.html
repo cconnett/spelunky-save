@@ -13,46 +13,11 @@
     <button ng-click="ctrl.chooseSaveFile()">
       Find your save file</button>
     <div class="flex">
-      <div id="placesList">
+      <div ng-repeat="object in ctrl.journal.allCategories">
         <ul>
-          <li ng-repeat="unlocked in ctrl.journal.places
-                         | orderBy: '+'
-                         track by $index"
-              ng-class="{done: unlocked}">
-            {{ctrl.placeNames[$index]}}
-          </li>
-        </ul>
-      </div>
-
-      <div id="enemiesList">
-        <ul>
-          <li ng-repeat="unlocked in ctrl.journal.enemies
-                         | orderBy: '+'
-                         track by $index"
-              ng-class="{done: unlocked}">
-            {{ctrl.enemyNames[$index]}}
-          </li>
-        </ul>
-      </div>
-
-      <div id="itemsList">
-        <ul>
-          <li ng-repeat="unlocked in ctrl.journal.items
-                         | orderBy: '+'
-                         track by $index"
-              ng-class="{done: unlocked}">
-            {{ctrl.itemNames[$index]}}
-          </li>
-        </ul>
-      </div>
-
-      <div id="trapsList">
-        <ul>
-          <li ng-repeat="unlocked in ctrl.journal.traps
-                         | orderBy: '+'
-                         track by $index"
-              ng-class="{done: unlocked}">
-            {{ctrl.trapNames[$index]}}
+          <li ng-repeat="entry in object | orderBy: 'unlocked'"
+              ng-class="{done: entry.unlocked}">
+            {{entry.name}}
           </li>
         </ul>
       </div>
