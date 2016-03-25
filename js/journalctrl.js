@@ -24,14 +24,14 @@ class JournalCtrl {
               entry.file(file => {
                 var reader = new FileReader();
                 reader.onload = event => {
-                  this._scope.$apply(() => this.journal =
-                                         new Journal(new Int8Array(
-                                             event.target.result, entry)));
+                  this._scope.$apply(
+                      () => this.journal = new Journal(
+                          new Int8Array(event.target.result, entry)));
                 };
                 reader.readAsArrayBuffer(file);
               });
             }));
-  };
+  }
 
   chooseSaveFile() {
     chrome.fileSystem.chooseEntry(
