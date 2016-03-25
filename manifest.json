@@ -1,17 +1,19 @@
 {
-  "name": "Spelunky Save Editor",
-  "description": "Edit your Spelunky save file in place.",
-  "version": "0.0.1",
   "manifest_version": 2,
+  "name": "Spelunky Journal Tracker",
+  "version": "0.0.1",
+  "default_locale": "en",
+  "description": "Track your Spelunky journal entries.",
+  "short_name": "AJE Tracker",
+  "icons": {
+    "64": "robot-icon.png"
+  },
   "app": {
     "background": {
       "scripts": [
         "background.js"
       ]
     }
-  },
-  "icons": {
-    "64": "robot-icon.png"
   },
   "permissions": [
     "storage",
