@@ -30,7 +30,8 @@ class Journal {
     ['Mines', 'Jungle', 'Ice Caves', 'Temple', 'Hell', 'Haunted Castle',
      'Black Market', 'Worm', 'Mothership', 'City of Gold']
         .forEach((name, index) => {
-          this.places[index] = {'name': name, 'unlocked': places[index]};
+          this.places[index] =
+              {'number': index + 1, 'name': name, 'unlocked': places[index]};
         });
 
     ['Snake', 'Cobra', 'Bat', 'Spider', 'Spinner Spider', 'Giant Spider',
@@ -44,7 +45,8 @@ class Journal {
      'Anubis II', 'Olmec', 'Vlad', 'Imp', 'Devil', 'Succubus', 'Horse Head',
      'Ox Face', 'King Yama',
     ].forEach((name, index) => {
-      this.enemies[index] = {'name': name, 'unlocked': enemies[index]};
+      this.enemies[index] =
+          {'number': index + 1, 'name': name, 'unlocked': enemies[index]};
     });
 
     ['Rope Pile', 'Bomb Bag', 'Bomb Box', 'Spectacles', 'Climbing Gloves',
@@ -54,7 +56,8 @@ class Journal {
      'Jetpack', 'Shield', 'Royal Jelly', 'Idol', 'Kapala', 'Udjat Eye', 'Ankh',
      'Hedjet', 'Sceptre', 'Necronomicon', "Vlad's Cape", "Vlad's Amulet"]
         .forEach((name, index) => {
-          this.items[index] = {'name': name, 'unlocked': items[index]};
+          this.items[index] =
+              {'number': index + 1, 'name': name, 'unlocked': items[index]};
         });
 
 
@@ -62,7 +65,8 @@ class Journal {
      'Spring', 'Mine', 'Turret', 'Forcefield', 'Crush Trap', 'Ceiling Trap',
      'Spike Ball', 'Lava']
         .forEach((name, index) => {
-          this.traps[index] = {'name': name, 'unlocked': traps[index]};
+          this.traps[index] =
+              {'number': index + 1, 'name': name, 'unlocked': traps[index]};
         });
 
     this.allCategories = [this.places, this.enemies, this.items, this.traps];
