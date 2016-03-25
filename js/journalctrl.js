@@ -1,10 +1,15 @@
 // import app from "app";
 
 class JournalCtrl {
-  constructor() {
-    chrome.storage.local.get(
-        'spelunkyJournal', data => openEntryKeyAsJournal(
-                               data['spelunkyJournal'], j => this.journal = j));
+  constructor($scope, $timeout) {
+    this._scope = $scope;
+    this._timeout = $timeout;
+
+    this.journal = null;
+
+    this.readJournal();
+    this.loop();
+
     this.placeNames = [
       'Mines',
       'Jungle',
@@ -17,6 +22,7 @@ class JournalCtrl {
       'Mothership',
       'City of Gold'
     ];
+
     this.enemyNames = [
       'Snake',
       'Cobra',
@@ -75,6 +81,7 @@ class JournalCtrl {
       'Ox Face',
       'King Yama',
     ];
+
     this.itemNames = [
       'Rope Pile',
       'Bomb Bag',
@@ -111,6 +118,7 @@ class JournalCtrl {
       "Vlad's Cape",
       "Vlad's Amulet"
     ];
+
     this.trapNames = [
       'Spike',
       'Arrow Trap',
@@ -128,5 +136,42 @@ class JournalCtrl {
       'Lava'
     ];
   }
+
+  loop() {
+    this.readJournal();
+    this._timeout(() => this.loop(), 500);
+  }
+
+  readJournal() {
+    chrome.storage.local.get(
+        'spelunkyJournal',
+        data =>
+            chrome.fileSystem.restoreEntry(data['spelunkyJournal'], entry => {
+              entry.file(file => {
+                var reader = new FileReader();
+                reader.onload = event => {
+                  this._scope.$apply(() => this.journal =
+                                         new Journal(new Int8Array(
+                                             event.target.result, entry)));
+                };
+                reader.readAsArrayBuffer(file);
+              });
+            }));
+  };
+
+  chooseSaveFile() {
+    chrome.fileSystem.chooseEntry(
+        {
+          'type': 'openFile',
+          'suggestedName':
+              '/Program Files (x86)/Steam/steamapps/common/Spelunky/Data/spelunky_save.sav'
+        },
+        function(entry) {
+          chrome.storage.local.set(
+              {'spelunkyJournal': chrome.fileSystem.retainEntry(entry)});
+          this.readJournal(entry);
+        });
+  };
 }
+
 app.controller('JournalCtrl', JournalCtrl);

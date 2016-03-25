@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="JournalEditor">
   <head>
+    <link rel="stylesheet" href="style.css" />
     <script src="js/init.js"></script>
     <script src="third_party/angular.min.js"></script>
     <script src="third_party/node-jspack/jspack.js"></script>
@@ -9,9 +10,52 @@
     <script src="js/journalctrl.js"></script>
   </head>
   <body ng-controller="JournalCtrl as ctrl">
-    <button id="findSave">Find your save file</button>
-    <button id="redo">Read the current</button>
-    <script src="js/link.js"></script>
-    <a ng-repeat="journal in ctrl.journals">{{journal.path}}</a>
+    <button ng-click="ctrl.chooseSaveFile()">
+      Find your save file</button>
+    <div class="flex">
+      <div id="placesList">
+        <ul>
+          <li ng-repeat="unlocked in ctrl.journal.places
+                         | orderBy: '+'
+                         track by $index"
+              ng-class="{done: unlocked}">
+            {{ctrl.placeNames[$index]}}
+          </li>
+        </ul>
+      </div>
+
+      <div id="enemiesList">
+        <ul>
+          <li ng-repeat="unlocked in ctrl.journal.enemies
+                         | orderBy: '+'
+                         track by $index"
+              ng-class="{done: unlocked}">
+            {{ctrl.enemyNames[$index]}}
+          </li>
+        </ul>
+      </div>
+
+      <div id="itemsList">
+        <ul>
+          <li ng-repeat="unlocked in ctrl.journal.items
+                         | orderBy: '+'
+                         track by $index"
+              ng-class="{done: unlocked}">
+            {{ctrl.itemNames[$index]}}
+          </li>
+        </ul>
+      </div>
+
+      <div id="trapsList">
+        <ul>
+          <li ng-repeat="unlocked in ctrl.journal.traps
+                         | orderBy: '+'
+                         track by $index"
+              ng-class="{done: unlocked}">
+            {{ctrl.trapNames[$index]}}
+          </li>
+        </ul>
+      </div>
+    </div>
   </body>
 </html>
