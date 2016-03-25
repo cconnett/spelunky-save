@@ -45,7 +45,9 @@ class JournalCtrl {
               {'spelunkyJournal': chrome.fileSystem.retainEntry(entry)});
           this.readJournal(entry);
         });
-  };
+  }
 }
 
-app.controller('JournalCtrl', JournalCtrl);
+app.controller('JournalCtrl', function($scope, $timeout) {
+  return new JournalCtrl($scope, $timeout);
+});
