@@ -2,7 +2,6 @@
   "manifest_version": 2,
   "name": "Spelunky Journal Tracker",
   "version": "0.0.1",
-  "default_locale": "en",
   "description": "Track your Spelunky journal entries.",
   "short_name": "AJE Tracker",
   "icons": {
