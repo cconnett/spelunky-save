@@ -5,7 +5,7 @@ save file's journal.
 
 ## Download
 
-Get it from the Chrome web store (link forthcoming).
+[Get it from the Chrome web store](https://chrome.google.com/webstore/detail/spelunky-journal-tracker/jmbkjlfhghmgiaclamfejgjbggbjebfo).
 
 ## Status
 
