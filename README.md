@@ -1,4 +1,16 @@
 # spelunky-save
-Spelunky Save Editor: A Chrome app to edit your Spelunky save file in place.
+
+Spelunky Journal Tracker: A Chrome app to track entries your Spelunky
+save file's journal.
+
+## Download
+
+Get it from the Chrome web store (link forthcoming).
+
 ## Status
-Not even close to ready.
+
+This software is alpha-quality.
+
+## Privacy Policy
+
+This software does not collect any personal information.
