@@ -14,12 +14,12 @@
       Find your save file</button>
     <div class="flex">
       <div ng-repeat="category in ctrl.journal.allCategories">
-        <ul>
+        <ol>
           <li ng-repeat="entry in category | orderBy: 'number'"
               ng-class="{done: entry.unlocked}">
             {{entry.name}}
           </li>
-        </ul>
+        </ol>
       </div>
     </div>
   </body>
