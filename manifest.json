@@ -18,8 +18,7 @@
     {
       "fileSystem": [
         "write",
-        "retainEntries",
-        "directory"
+        "retainEntries"
       ]
     }
   ]
