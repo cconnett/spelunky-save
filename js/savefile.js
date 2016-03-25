@@ -33,7 +33,7 @@ class Journal {
           this.places[index] = {'name': name, 'unlocked': places[index]};
         });
 
-    ['Snake', 'Cobra', 'Bat', 'Spider', 'Spinner Spider', 'Gaint Spider',
+    ['Snake', 'Cobra', 'Bat', 'Spider', 'Spinner Spider', 'Giant Spider',
      'Skeleton', 'Scorpion', 'Caveman', 'Damsel', 'Shopkeeper', 'Tunnelman',
      'Scarab', 'Tiki Man', 'Blue Frog', 'Fire Frog', 'Gaint Frog', 'Mantrap',
      'Piranha', 'Old Bitey', 'Killer Bee', 'Queen Bee', 'Snail', 'Monkey',
