@@ -36,7 +36,7 @@ class Journal {
 
     ['Snake', 'Cobra', 'Bat', 'Spider', 'Spinner Spider', 'Giant Spider',
      'Skeleton', 'Scorpion', 'Caveman', 'Damsel', 'Shopkeeper', 'Tunnelman',
-     'Scarab', 'Tiki Man', 'Blue Frog', 'Fire Frog', 'Gaint Frog', 'Mantrap',
+     'Scarab', 'Tiki Man', 'Blue Frog', 'Fire Frog', 'Giant Frog', 'Mantrap',
      'Piranha', 'Old Bitey', 'Killer Bee', 'Queen Bee', 'Snail', 'Monkey',
      'Golden Monkey', 'Jiang Shi', 'Green Knight', 'Black Knight', 'Vampire',
      'Ghost', 'Bacterium', 'Worm Egg', 'Worm Baby', 'Yeti', 'Yeti King',

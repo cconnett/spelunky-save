@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Spelunky Journal Tracker",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Track your Spelunky journal entries.",
   "short_name": "AJE Tracker",
   "icons": {
