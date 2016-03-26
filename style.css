@@ -1,5 +1,9 @@
+.entry {
+  color: #c00;
+}
 .done {
   text-decoration: line-through;
+  color: inherit;
 }
 .flex {
   display: flex;
