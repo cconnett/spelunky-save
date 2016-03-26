@@ -5,7 +5,7 @@ class JournalCtrl {
     this._scope = $scope;
     this._timeout = $timeout;
 
-    this.journal = null;
+    this.journal = new Journal();
 
     this.readJournal();
     this.loop();
@@ -25,7 +25,7 @@ class JournalCtrl {
                 var reader = new FileReader();
                 reader.onload = event => {
                   this._scope.$apply(
-                      () => this.journal = new Journal(
+                      () => this.journal.setFromBytes(
                           new Int8Array(event.target.result, entry)));
                 };
                 reader.readAsArrayBuffer(file);

@@ -13,9 +13,12 @@
     <button ng-click="ctrl.chooseSaveFile()">
       Find your save file</button>
     <div class="flex">
-      <div ng-repeat="category in ctrl.journal.allCategories">
+      <div ng-repeat="category in ctrl.journal.allCategories
+                      track by category.name">
         <ol>
-          <li ng-repeat="entry in category | orderBy: 'number'"
+          <li class="entry"
+              ng-repeat="entry in category.contents | orderBy: 'number'
+                         track by entry.name"
               ng-class="{done: entry.unlocked}">
             {{entry.name}}
           </li>

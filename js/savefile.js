@@ -1,19 +1,30 @@
 var jspack = exports.jspack;
 
 class Journal {
-  constructor(bytes, opt_entry) {
+  constructor(opt_entry) {
     // The chrome.fileSystem.entry from which this was constructed.
     this.entry = opt_entry || null;
-    [this.caveUnlocked] = jspack.Unpack('<I', bytes, 0x218);
-    var [deliveryA, deliveryB] = jspack.Unpack('<II', bytes, 0x21c);
-    this.numShortcutsUnlocked = Math.floor(deliveryA / 2);
-    this.numDeliveries = deliveryA % 2 + deliveryB;
+    this.caveUnlocked = 0;
+    this.numShortcutsUnlocked = 0;
+    this.numDeliveries = 0;
 
     this.places = [];
     this.enemies = [];
     this.items = [];
     this.traps = [];
+    this.allCategories = [
+      {'name': 'Places', 'contents': this.places},
+      {'name': 'Enemies', 'contents': this.enemies},
+      {'name': 'Items', 'contents': this.items},
+      {'name': 'Traps', 'contents': this.traps},
+    ];
+  }
 
+  setFromBytes(bytes) {
+    [this.caveUnlocked] = jspack.Unpack('<I', bytes, 0x218);
+    var [deliveryA, deliveryB] = jspack.Unpack('<II', bytes, 0x21c);
+    this.numShortcutsUnlocked = Math.floor(deliveryA / 2);
+    this.numDeliveries = deliveryA % 2 + deliveryB;
     var places = jspack.Unpack('<xxxx' +
                                    'I'.repeat(10),
                                bytes, 0x420);
@@ -68,8 +79,6 @@ class Journal {
           this.traps[index] =
               {'number': index + 1, 'name': name, 'unlocked': traps[index]};
         });
-
-    this.allCategories = [this.places, this.enemies, this.items, this.traps];
   }
 }
 
